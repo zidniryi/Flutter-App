@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.deepPurple,
+        primarySwatch: Colors.amber,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -88,17 +88,22 @@ class _MyHomePageState extends State<MyHomePage> {
         //   ),
         //   textAlign: TextAlign.center,
         // ),
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            new Text("data"),
-            new Text(
-              'World',
-              style: new TextStyle(color: Colors.deepOrange),
-            )
-          ],
-        ),
+        // child: Stack(
+        //   // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //   // crossAxisAlignment: CrossAxisAlignment.center,
+        //   alignment: AlignmentDirectional.bottomCenter,
+        //   children: <Widget>[
+        //     new Text("data"),
+        //     new Text(
+        //       'World',
+        //       style: new TextStyle(color: Colors.deepOrange),
+        //     )
+        //   ],
+        // ),
+        child: Image(image: AssetImage("assets/images/aye_captain.jpg")
+            // NetworkImage(
+            //     "https://awsimages.detik.net.id/visual/2016/03/15/346121dd-bfd5-41b4-a886-44a3ad29fe1d_169.jpg?w=650")
+            ),
       )),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
