@@ -72,10 +72,34 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Text('Helo World'),
-      ),
+          // Center is a layout widget. It takes a single child and positions it
+          // in the middle of the parent.
+          child: Container(
+        color: Colors.amberAccent,
+        margin: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
+        width: 210.1,
+        // child: Text(
+        //   'Helo World',
+        //   style: TextStyle(
+        //     fontStyle: FontStyle.italic,
+        //     fontSize: 20,
+        //     fontWeight: FontWeight.bold,
+        //   ),
+        //   textAlign: TextAlign.center,
+        // ),
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            new Text("data"),
+            new Text(
+              'World',
+              style: new TextStyle(color: Colors.deepOrange),
+            )
+          ],
+        ),
+      )),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
