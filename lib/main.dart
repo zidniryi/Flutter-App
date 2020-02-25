@@ -75,10 +75,10 @@ class _MyHomePageState extends State<MyHomePage> {
           // Center is a layout widget. It takes a single child and positions it
           // in the middle of the parent.
           child: Container(
-        color: Colors.amberAccent,
-        margin: const EdgeInsets.all(10),
-        padding: const EdgeInsets.all(10),
-        width: 210.1,
+        // color: Colors.amberAccent,
+        // margin: const EdgeInsets.all(10),
+        // padding: const EdgeInsets.all(10),
+        // width: 210.1,
         // child: Text(
         //   'Helo World',
         //   style: TextStyle(
@@ -100,10 +100,25 @@ class _MyHomePageState extends State<MyHomePage> {
         //     )
         //   ],
         // ),
-        child: Image(image: AssetImage("assets/images/aye_captain.jpg")
-            // NetworkImage(
-            //     "https://awsimages.detik.net.id/visual/2016/03/15/346121dd-bfd5-41b4-a886-44a3ad29fe1d_169.jpg?w=650")
+        // child: Image(image: AssetImage("assets/images/aye_captain.jpg")
+        //     // NetworkImage(
+        //     //     "https://awsimages.detik.net.id/visual/2016/03/15/346121dd-bfd5-41b4-a886-44a3ad29fe1d_169.jpg?w=650")
+        //     ),
+
+        // Padding
+        child: Row(
+          children: <Widget>[
+            new Text("Helo World",
+                style: new TextStyle(color: Colors.pink, fontSize: 20)),
+            new Padding(
+              // padding: EdgeInsets.all(20.0),
+              padding: EdgeInsets.fromLTRB(20.0, 10, 20.0, 20),
+              child: new Text('You are',
+                  style: new TextStyle(color: Colors.amber)),
             ),
+            new Text('How World ?')
+          ],
+        ),
       )),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
