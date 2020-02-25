@@ -106,24 +106,26 @@ class _MyHomePageState extends State<MyHomePage> {
         //     ),
 
         // Padding
-        child: Row(
-          children: <Widget>[
-            new Text("Helo World",
-                style: new TextStyle(color: Colors.pink, fontSize: 20)),
-            new Padding(
-              // padding: EdgeInsets.all(20.0),
-              padding: EdgeInsets.fromLTRB(20.0, 10, 20.0, 20),
-              child: new Text('You are',
-                  style: new TextStyle(color: Colors.amber)),
-            ),
-            new Text('How World ?')
-          ],
-        ),
+        // child: Row(
+        //   children: <Widget>[
+        //     new Text("Helo World",
+        //         style: new TextStyle(color: Colors.pink, fontSize: 20)),
+        //     new Padding(
+        //       // padding: EdgeInsets.all(20.0),
+        //       padding: EdgeInsets.fromLTRB(20.0, 10, 20.0, 20),
+        //       child: new Text('You are',
+        //           style: new TextStyle(color: Colors.amber)),
+        //     ),
+        //     new Text('How World ?')
+        //   ],
+        // ),
+        // Center
+        child: Text("Hello World", style: TextStyle(fontSize: 20)),
       )),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
-        child: Icon(Icons.add),
+        child: Icon(Icons.access_alarm),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
