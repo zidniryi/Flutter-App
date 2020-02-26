@@ -127,10 +127,17 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Row(
         children: <Widget>[
           new ConstrainedBox(
-            constraints: BoxConstraints(minWidth: 200, minHeight: 200),
+            constraints: BoxConstraints(minWidth: 20, minHeight: 20),
             child: new Text('Helo There'),
           ),
-          new Text('Helo There')
+          new Text(
+            'Helo There',
+            style: new TextStyle(fontSize: 15, color: Colors.amber),
+          ),
+          new Baseline(
+              child: new Text("She Beatifull"),
+              baseline: 20,
+              baselineType: TextBaseline.alphabetic)
         ],
       ))),
       floatingActionButton: FloatingActionButton(
