@@ -120,9 +120,18 @@ class _MyHomePageState extends State<MyHomePage> {
               //   ],
               // ),
               // Center
-              child: Align(
-        alignment: Alignment.topCenter,
-        child: Text("Hello World", style: TextStyle(fontSize: 20)),
+              //         child: Align(
+              //   alignment: Alignment.topCenter,
+              //   child: Text("Hello World", style: TextStyle(fontSize: 20)),
+              // )
+              child: Row(
+        children: <Widget>[
+          new ConstrainedBox(
+            constraints: BoxConstraints(minWidth: 200, minHeight: 200),
+            child: new Text('Helo There'),
+          ),
+          new Text('Helo There')
+        ],
       ))),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
