@@ -124,20 +124,25 @@ class _MyHomePageState extends State<MyHomePage> {
               //   alignment: Alignment.topCenter,
               //   child: Text("Hello World", style: TextStyle(fontSize: 20)),
               // )
-              child: Row(
+              child: Column(
         children: <Widget>[
-          new ConstrainedBox(
-            constraints: BoxConstraints(minWidth: 20, minHeight: 20),
-            child: new Text('Helo There'),
-          ),
-          new Text(
-            'Helo There',
-            style: new TextStyle(fontSize: 15, color: Colors.amber),
-          ),
-          new Baseline(
-              child: new Text("She Beatifull"),
-              baseline: 20,
-              baselineType: TextBaseline.alphabetic)
+          // new ConstrainedBox(
+          //   constraints: BoxConstraints(minWidth: 20, minHeight: 20),
+          //   child: new Text('Helo There'),
+          // ),
+          // new Text(
+          //   'Helo There',
+          //   style: new TextStyle(fontSize: 15, color: Colors.amber),
+          // ),
+          // new Baseline(
+          //     child: new Text("She Beatifull"),
+          //     baseline: -20,
+          //     baselineType: TextBaseline.alphabetic)
+          new AspectRatio(
+              aspectRatio: 4 / 3,
+              child: new Image(
+                  image: AssetImage("assets/images/aye_captain.jpg"))),
+          new Text("Data Image")
         ],
       ))),
       floatingActionButton: FloatingActionButton(
