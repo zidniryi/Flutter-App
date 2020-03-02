@@ -45,6 +45,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  // set up the button
 
   void _incrementCounter() {
     setState(() {
@@ -74,77 +75,103 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
           // Center is a layout widget. It takes a single child and positions it
           // in the middle of the parent.
-          child: Container(
-              // color: Colors.amberAccent,
-              // margin: const EdgeInsets.all(10),
-              // padding: const EdgeInsets.all(10),
-              // width: 210.1,
-              // child: Text(
-              //   'Helo World',
-              //   style: TextStyle(
-              //     fontStyle: FontStyle.italic,
-              //     fontSize: 20,
-              //     fontWeight: FontWeight.bold,
-              //   ),
-              //   textAlign: TextAlign.center,
-              // ),
-              // child: Stack(
-              //   // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   // crossAxisAlignment: CrossAxisAlignment.center,
-              //   alignment: AlignmentDirectional.bottomCenter,
-              //   children: <Widget>[
-              //     new Text("data"),
-              //     new Text(
-              //       'World',
-              //       style: new TextStyle(color: Colors.deepOrange),
-              //     )
-              //   ],
-              // ),
-              // child: Image(image: AssetImage("assets/images/aye_captain.jpg")
-              //     // NetworkImage(
-              //     //     "https://awsimages.detik.net.id/visual/2016/03/15/346121dd-bfd5-41b4-a886-44a3ad29fe1d_169.jpg?w=650")
-              //     ),
 
-              // Padding
-              // child: Row(
-              //   children: <Widget>[
-              //     new Text("Helo World",
-              //         style: new TextStyle(color: Colors.pink, fontSize: 20)),
-              //     new Padding(
-              //       // padding: EdgeInsets.all(20.0),
-              //       padding: EdgeInsets.fromLTRB(20.0, 10, 20.0, 20),
-              //       child: new Text('You are',
-              //           style: new TextStyle(color: Colors.amber)),
-              //     ),
-              //     new Text('How World ?')
-              //   ],
-              // ),
-              // Center
-              //         child: Align(
-              //   alignment: Alignment.topCenter,
-              //   child: Text("Hello World", style: TextStyle(fontSize: 20)),
-              // )
-              child: Column(
-        children: <Widget>[
-          // new ConstrainedBox(
-          //   constraints: BoxConstraints(minWidth: 20, minHeight: 20),
-          //   child: new Text('Helo There'),
-          // ),
-          // new Text(
-          //   'Helo There',
-          //   style: new TextStyle(fontSize: 15, color: Colors.amber),
-          // ),
-          // new Baseline(
-          //     child: new Text("She Beatifull"),
-          //     baseline: -20,
-          //     baselineType: TextBaseline.alphabetic)
-          new AspectRatio(
-              aspectRatio: 4 / 3,
-              child: new Image(
-                  image: AssetImage("assets/images/aye_captain.jpg"))),
-          new Text("Data Image")
-        ],
-      ))),
+          child: Container(
+        // color: Colors.amberAccent,
+        // margin: const EdgeInsets.all(10),
+        // padding: const EdgeInsets.all(10),
+        // width: 210.1,
+        // child: Text(
+        //   'Helo World',
+        //   style: TextStyle(
+        //     fontStyle: FontStyle.italic,
+        //     fontSize: 20,
+        //     fontWeight: FontWeight.bold,
+        //   ),
+        //   textAlign: TextAlign.center,
+        // ),
+        // child: Stack(
+        //   // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //   // crossAxisAlignment: CrossAxisAlignment.center,
+        //   alignment: AlignmentDirectional.bottomCenter,
+        //   children: <Widget>[
+        //     new Text("data"),
+        //     new Text(
+        //       'World',
+        //       style: new TextStyle(color: Colors.deepOrange),
+        //     )
+        //   ],
+        // ),
+        // child: Image(image: AssetImage("assets/images/aye_captain.jpg")
+        //     // NetworkImage(
+        //     //     "https://awsimages.detik.net.id/visual/2016/03/15/346121dd-bfd5-41b4-a886-44a3ad29fe1d_169.jpg?w=650")
+        //     ),
+
+        // Padding
+        // child: Row(
+        //   children: <Widget>[
+        //     new Text("Helo World",
+        //         style: new TextStyle(color: Colors.pink, fontSize: 20)),
+        //     new Padding(
+        //       // padding: EdgeInsets.all(20.0),
+        //       padding: EdgeInsets.fromLTRB(20.0, 10, 20.0, 20),
+        //       child: new Text('You are',
+        //           style: new TextStyle(color: Colors.amber)),
+        //     ),
+        //     new Text('How World ?')
+        //   ],
+        // ),
+        // Center
+        //         child: Align(
+        //   alignment: Alignment.topCenter,
+        //   child: Text("Hello World", style: TextStyle(fontSize: 20)),
+        // )
+        // child: Column(
+        // children: <Widget>[
+        // new ConstrainedBox(
+        //   constraints: BoxConstraints(minWidth: 20, minHeight: 20),
+        //   child: new Text('Helo There'),
+        // ),
+        // new Text(
+        //   'Helo There',
+        //   style: new TextStyle(fontSize: 15, color: Colors.amber),
+        // ),
+        // new Baseline(
+        //     child: new Text("She Beatifull"),
+        //     baseline: -20,
+        //     baselineType: TextBaseline.alphabetic)
+
+        // ],
+        // )
+        child: Listener(
+            // new AspectRatio(
+            //     aspectRatio: 4 / 3,
+            onPointerDown: (PointerDownEvent event) {
+              // set up the AlertDialog
+              AlertDialog alert = AlertDialog(
+                title: Text("My title"),
+                content: Text("This is my message."),
+                actions: [
+                  FlatButton(
+                      child: Text("OK"),
+                      onPressed: () => Navigator.of(context).pop()),
+                ],
+              );
+              // show the dialog
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return alert;
+                },
+              );
+            },
+            onPointerMove: (PointerMoveEvent event) {
+              print('Event Me');
+            },
+            child:
+                new Image(image: AssetImage("assets/images/aye_captain.jpg"))),
+        // new Text("Data Image")),
+      )),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
