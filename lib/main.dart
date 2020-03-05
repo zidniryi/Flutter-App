@@ -143,34 +143,41 @@ class _MyHomePageState extends State<MyHomePage> {
 
         // ],
         // )
-        child: Listener(
-            // new AspectRatio(
-            //     aspectRatio: 4 / 3,
-            onPointerDown: (PointerDownEvent event) {
-              // set up the AlertDialog
-              AlertDialog alert = AlertDialog(
-                title: Text("My title"),
-                content: Text("This is my message."),
-                actions: [
-                  FlatButton(
-                      child: Text("OK"),
-                      onPressed: () => Navigator.of(context).pop()),
-                ],
-              );
-              // show the dialog
-              showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return alert;
-                },
-              );
-            },
-            onPointerMove: (PointerMoveEvent event) {
-              print('Event Me');
-            },
-            child:
-                new Image(image: AssetImage("assets/images/aye_captain.jpg"))),
+        // child: Listener(
+        //     // new AspectRatio(
+        //     //     aspectRatio: 4 / 3,
+        //     onPointerDown: (PointerDownEvent event) {
+        //       // set up the AlertDialog
+        //       AlertDialog alert = AlertDialog(
+        //         title: Text("My title"),
+        //         content: Text("This is my message."),
+        //         actions: [
+        //           FlatButton(
+        //               child: Text("OK"),
+        //               onPressed: () => Navigator.of(context).pop()),
+        //         ],
+        //       );
+        //       // show the dialog
+        //       showDialog(
+        //         context: context,
+        //         builder: (BuildContext context) {
+        //           return alert;
+        //         },
+        //       );
+        //     },
+        //     onPointerMove: (PointerMoveEvent event) {
+        //       print('Event Me');
+        //     },
+        //     child:
+        //         new Image(image: AssetImage("assets/images/aye_captain.jpg"))),
         // new Text("Data Image")),
+
+        child: GestureDetector(
+          onTap: () {
+            print('On Tap');
+          },
+          child: new Image(image: AssetImage("assets/images/aye_captain.jpg")),
+        ),
       )),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
