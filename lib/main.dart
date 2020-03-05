@@ -173,8 +173,8 @@ class _MyHomePageState extends State<MyHomePage> {
         // new Text("Data Image")),
 
         child: GestureDetector(
-          onDoubleTap: () {
-            print('On Double Tap');
+          onLongPress: () {
+            print('On Long Press');
           },
           child: new Image(image: AssetImage("assets/images/aye_captain.jpg")),
         ),
