@@ -173,13 +173,16 @@ class _MyHomePageState extends State<MyHomePage> {
         // new Text("Data Image")),
 
         child: GestureDetector(
-          onVerticalDragStart: (DragStartDetails details) {
-            print('Start');
-            print(details);
-          },
-          onVerticalDragUpdate: (DragUpdateDetails details) {
-            print('Update');
-            print(details);
+          // onVerticalDragStart: (DragStartDetails details) {
+          //   print('Start');
+          //   print(details);
+          // },
+          // onVerticalDragUpdate: (DragUpdateDetails details) {
+          //   print('Update');
+          //   print(details);
+          // },
+          onHorizontalDragStart: (DragStartDetails details) {
+            print('Horizontal Start');
           },
           child: new Image(image: AssetImage("assets/images/aye_captain.jpg")),
         ),
