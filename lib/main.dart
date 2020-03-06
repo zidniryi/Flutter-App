@@ -7,7 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter 100 Days',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -173,8 +173,13 @@ class _MyHomePageState extends State<MyHomePage> {
         // new Text("Data Image")),
 
         child: GestureDetector(
-          onLongPress: () {
-            print('On Long Press');
+          onVerticalDragStart: (DragStartDetails details) {
+            print('Start');
+            print(details);
+          },
+          onVerticalDragUpdate: (DragUpdateDetails details) {
+            print('Update');
+            print(details);
           },
           child: new Image(image: AssetImage("assets/images/aye_captain.jpg")),
         ),
@@ -187,3 +192,11 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+/**
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
