@@ -73,24 +73,90 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void CallContact() {
+    print("Calling contact");
+  }
+
+  void AddInfoToContact() {
+    print("Adding Info To Contact");
+  }
+
+  void ItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: DefaultTabController(
-            length: 3,
-            child: Scaffold(
-                appBar: AppBar(
-                    bottom: TabBar(tabs: [
-                      Tab(icon: Icon(Icons.directions_railway)),
-                      Tab(icon: Icon(Icons.directions_subway)),
-                      Tab(icon: Icon(Icons.directions_bike)),
-                    ]),
-                    title: Text("Tab Bar")),
-                body: TabBarView(children: [
-                  Icon(Icons.directions_railway),
-                  Icon(Icons.directions_subway),
-                  Icon(Icons.directions_bike),
-                ]))));
+    // This method is rerun every time setState is called, for instance as done
+    // by the _incrementCounter method above.
+    //
+    // The Flutter framework has been optimized to make rerunning build methods
+    // fast, so that you can just rebuild anything that needs updating rather
+    // than having to individually change instances of widgets.
+    return Scaffold(
+      appBar: AppBar(
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text(widget.title),
+
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.call),
+            tooltip: "Call Contact",
+            onPressed: AddInfoToContact,
+          ),
+          IconButton(
+            icon: Icon(Icons.add),
+            tooltip: "Add Information To Contact",
+            onPressed: AddInfoToContact,
+          )
+        ],
+      ),
+
+      drawer: Drawer(
+        child: Column(
+          children: <Widget>[
+            ListTile(
+              leading: Icon(Icons.alarm),
+              title: Text("Alarm"),
+              onTap: () {
+                // Change the applications state
+                print("Change page");
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
+
+      body: Center(
+          // Center is a layout widget. It takes a single child and positions it
+          // in the middle of the parent.
+
+          ),
+
+      bottomNavigationBar: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("Home")),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.business), title: Text("Business")),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.school), title: Text("School")),
+        ],
+        currentIndex: _selectedIndex,
+        onTap: ItemTapped,
+        fixedColor: Colors.amber,
+      ),
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: Icon(Icons.airplay),
+      ), // This t
+      // railing comma makes auto-formatting nicer for build methods.
+    );
   }
 }
 
