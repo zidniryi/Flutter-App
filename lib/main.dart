@@ -75,166 +75,22 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text('Helo World'),
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(Icons.adb),
-              tooltip: 'Helo World',
-              onPressed: _setTime),
-          IconButton(
-              icon: Icon(Icons.donut_large),
-              tooltip: 'Helo World',
-              onPressed: _addTime),
-        ],
-      ),
-      body: Center(
-          // Center is a layout widget. It takes a single child and positions it
-          // in the middle of the parent.
-
-          child: Container(
-        // color: Colors.amberAccent,
-        // margin: const EdgeInsets.all(10),
-        // padding: const EdgeInsets.all(10),
-        // width: 210.1,
-        // child: Text(
-        //   'Helo World',
-        //   style: TextStyle(
-        //     fontStyle: FontStyle.italic,
-        //     fontSize: 20,
-        //     fontWeight: FontWeight.bold,
-        //   ),
-        //   textAlign: TextAlign.center,
-        // ),
-        // child: Stack(
-        //   // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        //   // crossAxisAlignment: CrossAxisAlignment.center,
-        //   alignment: AlignmentDirectional.bottomCenter,
-        //   children: <Widget>[
-        //     new Text("data"),
-        //     new Text(
-        //       'World',
-        //       style: new TextStyle(color: Colors.deepOrange),
-        //     )
-        //   ],
-        // ),
-        // child: Image(image: AssetImage("assets/images/aye_captain.jpg")
-        //     // NetworkImage(
-        //     //     "https://awsimages.detik.net.id/visual/2016/03/15/346121dd-bfd5-41b4-a886-44a3ad29fe1d_169.jpg?w=650")
-        //     ),
-
-        // Padding
-        // child: Row(
-        //   children: <Widget>[
-        //     new Text("Helo World",
-        //         style: new TextStyle(color: Colors.pink, fontSize: 20)),
-        //     new Padding(
-        //       // padding: EdgeInsets.all(20.0),
-        //       padding: EdgeInsets.fromLTRB(20.0, 10, 20.0, 20),
-        //       child: new Text('You are',
-        //           style: new TextStyle(color: Colors.amber)),
-        //     ),
-        //     new Text('How World ?')
-        //   ],
-        // ),
-        // Center
-        //         child: Align(
-        //   alignment: Alignment.topCenter,
-        //   child: Text("Hello World", style: TextStyle(fontSize: 20)),
-        // )
-        // child: Column(
-        // children: <Widget>[
-        // new ConstrainedBox(
-        //   constraints: BoxConstraints(minWidth: 20, minHeight: 20),
-        //   child: new Text('Helo There'),
-        // ),
-        // new Text(
-        //   'Helo There',
-        //   style: new TextStyle(fontSize: 15, color: Colors.amber),
-        // ),
-        // new Baseline(
-        //     child: new Text("She Beatifull"),
-        //     baseline: -20,
-        //     baselineType: TextBaseline.alphabetic)
-
-        // ],
-        // )
-        // child: Listener(
-        //     // new AspectRatio(
-        //     //     aspectRatio: 4 / 3,
-        //     onPointerDown: (PointerDownEvent event) {
-        //       // set up the AlertDialog
-        //       AlertDialog alert = AlertDialog(
-        //         title: Text("My title"),
-        //         content: Text("This is my message."),
-        //         actions: [
-        //           FlatButton(
-        //               child: Text("OK"),
-        //               onPressed: () => Navigator.of(context).pop()),
-        //         ],
-        //       );
-        //       // show the dialog
-        //       showDialog(
-        //         context: context,
-        //         builder: (BuildContext context) {
-        //           return alert;
-        //         },
-        //       );
-        //     },
-        //     onPointerMove: (PointerMoveEvent event) {
-        //       print('Event Me');
-        //     },
-        //     child:
-        //         new Image(image: AssetImage("assets/images/aye_captain.jpg"))),
-        // new Text("Data Image")),
-
-        child: GestureDetector(
-          // onVerticalDragStart: (DragStartDetails details) {
-          //   print('Start');
-          //   print(details);
-          // },
-          // onVerticalDragUpdate: (DragUpdateDetails details) {
-          //   print('Update');
-          //   print(details);
-          // },
-          onPanDown: (DragDownDetails details) {
-            print('Pan Down');
-            print(details);
-          },
-          child: new Image(
-            image: AssetImage("assets/images/aye_captain.jpg"),
-          ),
-        ),
-      )),
-      bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.message), title: Text('Pesan')),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.account_box), title: Text('Profile')),
-        ],
-        currentIndex: _selectedIndex,
-        onTap: itemTapped,
-        fixedColor: Colors.teal,
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add_box),
-      ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-      // This trailing comma makes auto-formatting nicer for build methods.
-    );
+    return MaterialApp(
+        home: DefaultTabController(
+            length: 3,
+            child: Scaffold(
+                appBar: AppBar(
+                    bottom: TabBar(tabs: [
+                      Tab(icon: Icon(Icons.directions_railway)),
+                      Tab(icon: Icon(Icons.directions_subway)),
+                      Tab(icon: Icon(Icons.directions_bike)),
+                    ]),
+                    title: Text("Tab Bar")),
+                body: TabBarView(children: [
+                  Icon(Icons.directions_railway),
+                  Icon(Icons.directions_subway),
+                  Icon(Icons.directions_bike),
+                ]))));
   }
 }
 
