@@ -45,6 +45,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  int _selectedIndex = 1;
   // set up the button
 
   void _incrementCounter() {
@@ -64,6 +65,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _addTime() {
     print('ADD TIME');
+  }
+
+  void itemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 
   @override
@@ -208,13 +215,23 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       )),
-      bottomNavigationBar: BottomAppBar(child: Container(height: 50.0)),
+      bottomNavigationBar: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.message), title: Text('Pesan')),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.search), title: Text('Cari')),
+        ],
+        currentIndex: _selectedIndex,
+        onTap: itemTapped,
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.access_alarm),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
