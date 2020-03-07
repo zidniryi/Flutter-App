@@ -70,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Text('Helo World'),
       ),
       body: Center(
           // Center is a layout widget. It takes a single child and positions it
@@ -181,17 +181,23 @@ class _MyHomePageState extends State<MyHomePage> {
           //   print('Update');
           //   print(details);
           // },
-          onHorizontalDragStart: (DragStartDetails details) {
-            print('Horizontal Start');
+          onPanDown: (DragDownDetails details) {
+            print('Pan Down');
+            print(details);
           },
-          child: new Image(image: AssetImage("assets/images/aye_captain.jpg")),
+          child: new Image(
+            image: AssetImage("assets/images/aye_captain.jpg"),
+          ),
         ),
       )),
+      bottomNavigationBar: BottomAppBar(child: Container(height: 50.0)),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.access_alarm),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
