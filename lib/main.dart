@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.amber,
+        primarySwatch: Colors.teal,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -88,11 +88,11 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text('Helo World'),
         actions: <Widget>[
           IconButton(
-              icon: Icon(Icons.access_time),
+              icon: Icon(Icons.adb),
               tooltip: 'Helo World',
               onPressed: _setTime),
           IconButton(
-              icon: Icon(Icons.add_alarm),
+              icon: Icon(Icons.donut_large),
               tooltip: 'Helo World',
               onPressed: _addTime),
         ],
@@ -221,15 +221,16 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
               icon: Icon(Icons.message), title: Text('Pesan')),
           BottomNavigationBarItem(
-              icon: Icon(Icons.search), title: Text('Cari')),
+              icon: Icon(Icons.account_box), title: Text('Profile')),
         ],
         currentIndex: _selectedIndex,
         onTap: itemTapped,
+        fixedColor: Colors.teal,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
-        child: Icon(Icons.access_alarm),
+        child: Icon(Icons.add_box),
       ),
       // floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       // This trailing comma makes auto-formatting nicer for build methods.
