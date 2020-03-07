@@ -58,6 +58,14 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _setTime() {
+    print('Set Time');
+  }
+
+  void _addTime() {
+    print('ADD TIME');
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -71,6 +79,16 @@ class _MyHomePageState extends State<MyHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text('Helo World'),
+        actions: <Widget>[
+          IconButton(
+              icon: Icon(Icons.access_time),
+              tooltip: 'Helo World',
+              onPressed: _setTime),
+          IconButton(
+              icon: Icon(Icons.add_alarm),
+              tooltip: 'Helo World',
+              onPressed: _addTime),
+        ],
       ),
       body: Center(
           // Center is a layout widget. It takes a single child and positions it
