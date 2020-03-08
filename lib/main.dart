@@ -47,6 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   int _selectedIndex = 1;
   String _name = "zidni";
+  String dropdownStr = 'Batman Begins';
   // set up the button
 
   void _incrementCounter() {
@@ -105,17 +106,28 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        title: Text('Title'),
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text(widget.title),
       ),
-      body: Container(
-        child: FlatButton(
-          onPressed: itemClick,
-          child: Text(_name),
-          color: Colors.blue,
-          textColor: Colors.white,
-          highlightColor: Colors.green,
-        ),
-      ),
+      body: Center(
+          // Center is a layout widget. It takes a single child and positions it
+          // in the middle of the parent.
+          child: DropdownButton<String>(
+              value: dropdownStr,
+              onChanged: (String newValue) {
+                setState(() {
+                  dropdownStr = newValue;
+                });
+              },
+              items: <String>[
+                'Batman Begins',
+                'The Dark Knight',
+                'The Dark Knight Rises'
+              ].map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                    value: value, child: Text(value));
+              }).toList())),
     );
   }
 }
