@@ -48,6 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 1;
   String _name = "zidni";
   String dropdownStr = 'Batman Begins';
+  String text = "";
   // set up the button
 
   void _incrementCounter() {
@@ -105,30 +106,126 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-          // Center is a layout widget. It takes a single child and positions it
-          // in the middle of the parent.
-          child: DropdownButton<String>(
-              value: dropdownStr,
-              onChanged: (String newValue) {
+        appBar: AppBar(
+          // Here we take the value from the MyHomePage object that was created by
+          // the App.build method, and use it to set our appbar title.
+          title: Text(widget.title),
+        ),
+        body: ListView(children: <Widget>[
+          Row(
+            //ROW 1
+            children: [
+              Container(
+                color: Colors.orange,
+                margin: EdgeInsets.all(25.0),
+                child: FlutterLogo(
+                  size: 60.0,
+                ),
+              ),
+              Container(
+                color: Colors.blue,
+                margin: EdgeInsets.all(25.0),
+                child: FlutterLogo(
+                  size: 60.0,
+                ),
+              ),
+              Container(
+                color: Colors.purple,
+                margin: EdgeInsets.all(25.0),
+                child: FlutterLogo(
+                  size: 60.0,
+                ),
+              ),
+            ],
+          ),
+          Row(
+            //ROW 2
+            children: [
+              Container(
+                color: Colors.orange,
+                margin: EdgeInsets.all(25.0),
+                child: FlutterLogo(
+                  size: 60.0,
+                ),
+              ),
+              Container(
+                color: Colors.blue,
+                margin: EdgeInsets.all(25.0),
+                child: FlutterLogo(
+                  size: 60.0,
+                ),
+              ),
+              Container(
+                color: Colors.purple,
+                margin: EdgeInsets.all(25.0),
+                child: FlutterLogo(
+                  size: 60.0,
+                ),
+              ),
+            ],
+          ),
+          Row(
+            //ROW 4
+            children: [
+              Container(
+                color: Colors.orange,
+                margin: EdgeInsets.all(25.0),
+                child: FlutterLogo(
+                  size: 60.0,
+                ),
+              ),
+              Container(
+                color: Colors.blue,
+                margin: EdgeInsets.all(25.0),
+                child: FlutterLogo(
+                  size: 60.0,
+                ),
+              ),
+              Container(
+                color: Colors.purple,
+                margin: EdgeInsets.all(25.0),
+                child: FlutterLogo(
+                  size: 60.0,
+                ),
+              ),
+            ],
+          ),
+          Row(// ROW 3
+              children: [
+            Container(
+              color: Colors.orange,
+              margin: EdgeInsets.all(25.0),
+              child: FlutterLogo(
+                size: 60.0,
+              ),
+            ),
+            Container(
+              color: Colors.blue,
+              margin: EdgeInsets.all(25.0),
+              child: FlutterLogo(
+                size: 60.0,
+              ),
+            ),
+            Container(
+              color: Colors.purple,
+              margin: EdgeInsets.all(25.0),
+              child: FlutterLogo(
+                size: 60.0,
+              ),
+            ),
+          ]),
+          Container(color: Colors.red, child: Text(text)),
+          Container(
+            margin: EdgeInsets.all(10.0),
+            child: TextField(
+              onChanged: (String string) {
                 setState(() {
-                  dropdownStr = newValue;
+                  text = string;
                 });
               },
-              items: <String>[
-                'Batman Begins',
-                'The Dark Knight',
-                'The Dark Knight Rises'
-              ].map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                    value: value, child: Text(value));
-              }).toList())),
-    );
+            ),
+          )
+        ]));
   }
 }
 
@@ -139,3 +236,11 @@ class _MyHomePageState extends State<MyHomePage> {
  * 
  * 
  */
+
+//  child: TextField(
+//         onChanged: (String string) {
+//           setState(() {
+//             text = string;
+//           });
+//         },
+//       ),
