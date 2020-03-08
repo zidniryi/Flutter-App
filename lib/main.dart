@@ -46,6 +46,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   int _selectedIndex = 1;
+  String _name = "zidni";
   // set up the button
 
   void _incrementCounter() {
@@ -87,6 +88,13 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  itemClick() {
+    print('Helo CLick');
+    setState(() {
+      _name = "ridwan";
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -95,26 +103,19 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return CustomScrollView(
-      slivers: <Widget>[
-        SliverAppBar(
-          pinned: true,
-          expandedHeight: 150,
-          flexibleSpace: FlexibleSpaceBar(
-            title: Text("Epic Sliver"),
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Title'),
+      ),
+      body: Container(
+        child: FlatButton(
+          onPressed: itemClick,
+          child: Text(_name),
+          color: Colors.blue,
+          textColor: Colors.white,
+          highlightColor: Colors.green,
         ),
-        SliverFixedExtentList(
-          itemExtent: 50.0,
-          delegate:
-              SliverChildBuilderDelegate((BuildContext context, int index) {
-            return Container(
-                alignment: Alignment.centerLeft,
-                color: Colors.cyanAccent,
-                child: Text("List Item $index"));
-          }, childCount: 20),
-        )
-      ],
+      ),
     );
   }
 }
