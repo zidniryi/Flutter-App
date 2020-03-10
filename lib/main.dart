@@ -44,6 +44,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  double sliderAmount = 0;
   int _counter = 0;
   int _selectedIndex = 1;
   String _name = "zidni";
@@ -214,6 +215,22 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ]),
+          Row(
+            children: <Widget>[
+              Container(
+                  child: Slider(
+                value: sliderAmount,
+                onChanged: (double delta) {
+                  setState(() {
+                    sliderAmount = delta;
+                  });
+                  print(sliderAmount);
+                },
+                divisions: 10,
+                activeColor: Colors.black,
+              ))
+            ],
+          ),
           Container(color: Colors.red, child: Text(text)),
           Container(
             margin: EdgeInsets.all(10.0),
