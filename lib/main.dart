@@ -323,79 +323,79 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-          // Center is a layout widget. It takes a single child and positions it
-          // in the middle of the parent.
-          child: GridView.count(
-        crossAxisCount: 3,
-        children: <Widget>[
-          Center(
-            child: Image(
-              width: 100.0,
-              height: 100.0,
-              image: NetworkImage(
-                  "https://img.favpng.com/17/7/7/heart-icon-love-icon-png-favpng-fdEYx0u0j6vLbKTw6ptuPxCD2.jpg"),
+        appBar: AppBar(
+          // Here we take the value from the MyHomePage object that was created by
+          // the App.build method, and use it to set our appbar title.
+          title: Text(widget.title),
+        ),
+        body: ListView(
+          children: <Widget>[
+            ListTile(
+              title: Text('Ayam'),
+              subtitle: Text('Ayam Sub'),
+              leading: Icon(Icons.ac_unit),
             ),
-          ),
-          Center(
-            child: Image(
-              width: 100.0,
-              height: 100.0,
-              image: NetworkImage(
-                  "https://img.favpng.com/17/7/7/heart-icon-love-icon-png-favpng-fdEYx0u0j6vLbKTw6ptuPxCD2.jpg"),
+            ListTile(
+              title: Text('Ayam'),
+              subtitle: Text('Ayam Sub'),
+              leading: Icon(Icons.ac_unit),
             ),
-          ),
-          Center(
-            child: Image(
-              width: 100.0,
-              height: 100.0,
-              image: NetworkImage(
-                  "https://img.favpng.com/17/7/7/heart-icon-love-icon-png-favpng-fdEYx0u0j6vLbKTw6ptuPxCD2.jpg"),
+            ListTile(
+              title: Text('Ayam'),
+              subtitle: Text('Ayam Sub'),
+              leading: Icon(Icons.ac_unit),
             ),
-          ),
-          Center(
-            child: Text('COk'),
-          ),
-          Center(
-            child: Text('COk'),
-          ),
-          Center(
-            child: Text('COk'),
-          ),
-          Center(
-            child: Text('COk'),
-          ),
-          Center(
-            child: Text('COk'),
-          ),
-          Center(
-            child: Text('COk'),
-          ),
-          Center(
-            child: Text('COk'),
-          ),
-          Center(
-            child: Text('COk'),
-          ),
-          Center(
-            child: Text('COk'),
-          ),
-          Center(
-            child: Text('COk'),
-          ),
-          Center(
-            child: Text('COk'),
-          ),
-          Center(
-            child: Text('COk'),
-          ),
-        ],
-      )),
-    );
+            ListTile(
+              title: Text('Ayam'),
+              subtitle: Text('Ayam Sub'),
+              leading: Icon(Icons.ac_unit),
+            ),
+            ListTile(
+              title: Text('Ayam'),
+              subtitle: Text('Ayam Sub'),
+              leading: Icon(Icons.ac_unit),
+            ),
+            ListTile(
+              title: Text('Ayam'),
+              subtitle: Text('Ayam Sub'),
+              leading: Icon(Icons.ac_unit),
+            ),
+            ListTile(
+              title: Text('Ayam'),
+              subtitle: Text('Ayam Sub'),
+              leading: Icon(Icons.ac_unit),
+            ),
+            ListTile(
+              title: Text('Ayam'),
+              subtitle: Text('Ayam Sub'),
+              leading: Icon(Icons.ac_unit),
+            ),
+            ListTile(
+              title: Text('Ayam'),
+              subtitle: Text('Ayam Sub'),
+              leading: Icon(Icons.ac_unit),
+            ),
+            ListTile(
+              title: Text('Ayam'),
+              subtitle: Text('Ayam Sub'),
+              leading: Icon(Icons.ac_unit),
+            ),
+            ListTile(
+              title: Text('Ayam'),
+              subtitle: Text('Ayam Sub'),
+              leading: Icon(Icons.ac_unit),
+            ),
+            ListTile(
+              title: Text('Ayam'),
+              subtitle: Text('Ayam Sub'),
+              leading: Icon(Icons.ac_unit),
+            ),
+            ListTile(
+              title: Text('Ayam'),
+              subtitle: Text('Ayam Sub'),
+              leading: Icon(Icons.ac_unit),
+            ),
+          ],
+        ));
   }
 }
