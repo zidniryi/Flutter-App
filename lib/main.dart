@@ -331,9 +331,9 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
           // Center is a layout widget. It takes a single child and positions it
           // in the middle of the parent.
-          child: Tooltip(
-        message: "This is a tooltip",
-        child: Text("Click me"),
+          child: CircularProgressIndicator(
+        backgroundColor: Colors.black,
+        value: 0.20,
       )),
     );
   }
