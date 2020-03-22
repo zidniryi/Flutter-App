@@ -331,7 +331,71 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
           // Center is a layout widget. It takes a single child and positions it
           // in the middle of the parent.
-          child: GridView.count(crossAxisCount: 2)),
+          child: GridView.count(
+        crossAxisCount: 3,
+        children: <Widget>[
+          Center(
+            child: Image(
+              width: 100.0,
+              height: 100.0,
+              image: NetworkImage(
+                  "https://img.favpng.com/17/7/7/heart-icon-love-icon-png-favpng-fdEYx0u0j6vLbKTw6ptuPxCD2.jpg"),
+            ),
+          ),
+          Center(
+            child: Image(
+              width: 100.0,
+              height: 100.0,
+              image: NetworkImage(
+                  "https://img.favpng.com/17/7/7/heart-icon-love-icon-png-favpng-fdEYx0u0j6vLbKTw6ptuPxCD2.jpg"),
+            ),
+          ),
+          Center(
+            child: Image(
+              width: 100.0,
+              height: 100.0,
+              image: NetworkImage(
+                  "https://img.favpng.com/17/7/7/heart-icon-love-icon-png-favpng-fdEYx0u0j6vLbKTw6ptuPxCD2.jpg"),
+            ),
+          ),
+          Center(
+            child: Text('COk'),
+          ),
+          Center(
+            child: Text('COk'),
+          ),
+          Center(
+            child: Text('COk'),
+          ),
+          Center(
+            child: Text('COk'),
+          ),
+          Center(
+            child: Text('COk'),
+          ),
+          Center(
+            child: Text('COk'),
+          ),
+          Center(
+            child: Text('COk'),
+          ),
+          Center(
+            child: Text('COk'),
+          ),
+          Center(
+            child: Text('COk'),
+          ),
+          Center(
+            child: Text('COk'),
+          ),
+          Center(
+            child: Text('COk'),
+          ),
+          Center(
+            child: Text('COk'),
+          ),
+        ],
+      )),
     );
   }
 }
