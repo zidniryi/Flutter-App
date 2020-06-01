@@ -290,7 +290,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.red,
       ),
-      home: MyHomePage(title: 'Epic Page'),
+      home: MyHomePage(title: 'Navigation'),
     );
   }
 }
@@ -328,20 +328,32 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: GridView.count(crossAxisCount: 2,
-      children: <Widget>[
-        
-        Center(child: Text("Menu")),
-        Center(child: Text("Menu")),
-        Center(child: Text("Menu")),
-        Center(child: Text("Menu")),
-        Center(child: Text("Menu")),
-        Center(child: Text("Menu")),
-        Center(child: Text("Menu")),
-        Center(child: Text("Menu")),
+      body:     Center(
+      child: RaisedButton(onPressed: () => {
+        Navigator.push(context, MaterialPageRoute(builder: (context) =>  SecondScreen()) 
+        )
+        },
+      child: Text('Next Screen')
+      ),
+      )
+    );
+  }
+}
 
 
-      ],
+class SecondScreen extends StatelessWidget{
+  @override
+   Widget build(BuildContext context) {
+   return Scaffold(
+      appBar: AppBar(
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text('Second Screen'),
+      ),
+      body:     Center(
+      child: RaisedButton(onPressed: () => {Navigator.pop(context)},
+      child: Text('Go Back')
+      ),
       )
     );
   }
