@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.red,
       ),
-      home: MyHomePage(title: 'First Page Love'),
+      home: MyHomePage(title: 'Send Data'),
     );
   }
 }
@@ -42,6 +42,11 @@ class MyHomePage extends StatefulWidget {
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
+}
+  final GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
+GoToSecondPage(BuildContext context) async{
+  final result = await Navigator.push(context, MaterialPageRoute(builder: (context) => SecondPage(str: 'BATMAN',)));
+_scaffold.currentState.showSnackBar(SnackBar(content: Text("$result")));
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -65,20 +70,31 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
+      key: _scaffold,
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
       body: Container(
-        child: RaisedButton(
-          child: Text("Next Page"),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => SecondPage())
-            );
-          },
+        child: Column(
+          children: <Widget>[
+            RaisedButton(
+              child: Text("Interstellar"),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SecondPage(str: "Interstellar"))
+                );
+              },
+            ),
+            RaisedButton(
+              child: Text("Dark Knight"),
+              onPressed: () {
+             GoToSecondPage(context);
+              },
+            ),
+          ],
         )
       )
     );
