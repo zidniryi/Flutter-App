@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'secondpage.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.red,
       ),
-      home: MyHomePage(title: 'Send Data'),
+      home: MyHomePage(title: 'Buyung Puyuh'),
     );
   }
 }
@@ -43,23 +42,51 @@ class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
-  final GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
-GoToSecondPage(BuildContext context) async{
-  final result = await Navigator.push(context, MaterialPageRoute(builder: (context) => SecondPage(str: 'BATMAN',)));
-_scaffold.currentState.showSnackBar(SnackBar(content: Text("$result")));
-}
 
-class _MyHomePageState extends State<MyHomePage> {
-  String lblValue = "Epic Text";
+class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
+  AnimationController _controller;
+  AnimationController _controller2;
+  Animation<Color> animation;
+  Animation<Color> animation2;
+  Color val;
 
-  Row rw = Row(children: <Widget>[
-      Icon(Icons.star),
-      Icon(Icons.star),
-      Icon(Icons.star),
-      Icon(Icons.star),
-      Icon(Icons.star),
-    ],
-  );
+  _MyHomePageState() {
+    _controller = AnimationController(
+      duration: Duration(milliseconds: 4500),
+      vsync: this,
+    );
+
+    _controller2 = AnimationController(
+      duration: Duration(milliseconds: 2000),
+      vsync: this,
+    );
+
+    animation = ColorTween(
+        begin: Color.fromRGBO(255, 0, 0, 1.0),
+        end: Color.fromRGBO(0, 0, 255, 1.0)
+    ).animate(_controller)
+      ..addListener(() {
+        setState(() {
+          val = animation.value;
+        });
+      })..addStatusListener((status) {
+        if (status == AnimationStatus.completed) {
+          animation2 = ColorTween(
+              begin: animation.value,
+              end: Color.fromRGBO(0, 255, 0, 1.0)
+          ).animate(_controller2)
+            ..addListener(() {
+              setState(() {
+                val = animation2.value;
+              });
+            });
+
+          _controller2.forward();
+        }
+      });
+
+    _controller.forward();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,33 +97,14 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      key: _scaffold,
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Container(
-        child: Column(
-          children: <Widget>[
-            RaisedButton(
-              child: Text("Interstellar"),
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SecondPage(str: "Interstellar"))
-                );
-              },
-            ),
-            RaisedButton(
-              child: Text("Dark Knight"),
-              onPressed: () {
-             GoToSecondPage(context);
-              },
-            ),
-          ],
+        appBar: AppBar(
+          // Here we take the value from the MyHomePage object that was created by
+          // the App.build method, and use it to set our appbar title.
+          title: Text(widget.title),
+        ),
+        body: Container(
+          decoration: BoxDecoration(color: val),
         )
-      )
     );
   }
 }
