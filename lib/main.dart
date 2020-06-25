@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'Animation/FadeAnimation.dart';
+
 
 void main() => runApp(MyApp());
+
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -20,22 +24,13 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.red,
       ),
-      home: MyHomePage(title: 'Buyung Puyuh'),
+      home: MyHomePage(title: 'Get API'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
 
   final String title;
 
@@ -44,49 +39,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
-  AnimationController _controller;
-  AnimationController _controller2;
-  Animation<Color> animation;
-  Animation<Color> animation2;
-  Color val;
-
-  _MyHomePageState() {
-    _controller = AnimationController(
-      duration: Duration(milliseconds: 4500),
-      vsync: this,
-    );
-
-    _controller2 = AnimationController(
-      duration: Duration(milliseconds: 2000),
-      vsync: this,
-    );
-
-    animation = ColorTween(
-        begin: Color.fromRGBO(255, 0, 0, 1.0),
-        end: Color.fromRGBO(0, 0, 255, 1.0)
-    ).animate(_controller)
-      ..addListener(() {
-        setState(() {
-          val = animation.value;
-        });
-      })..addStatusListener((status) {
-        if (status == AnimationStatus.completed) {
-          animation2 = ColorTween(
-              begin: animation.value,
-              end: Color.fromRGBO(0, 255, 0, 1.0)
-          ).animate(_controller2)
-            ..addListener(() {
-              setState(() {
-                val = animation2.value;
-              });
-            });
-
-          _controller2.forward();
-        }
-      });
-
-    _controller.forward();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -97,14 +49,150 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-        appBar: AppBar(
-          // Here we take the value from the MyHomePage object that was created by
-          // the App.build method, and use it to set our appbar title.
-          title: Text(widget.title),
-        ),
+  
         body: Container(
-          decoration: BoxDecoration(color: val),
+          padding: EdgeInsets.symmetric(vertical:30),
+          width: double.infinity,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            colors: [
+              Colors.green[900],
+              Colors.green[800],
+              Colors.green[400]
+            ]
+            )),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                
+                SizedBox(height: 20),
+                Padding(padding: EdgeInsets.all(20),
+                child: Column(
+                  children: <Widget>[
+                  FadeAnimation(1, Text("Login ", style: TextStyle(color: Colors.white, fontSize: 40))),
+                  FadeAnimation(1.3, Text("Welcome Hi ", style: TextStyle(color: Colors.white, fontSize: 18))),
+                  ],
+                ),
+                ),
+                SizedBox(height: 20),
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(topLeft: Radius.circular(60), topRight: Radius.circular(60))
+
+                    ),
+                    child: Padding(padding: EdgeInsets.all(30),
+                    child:Column(children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.all(20),
+                       decoration: BoxDecoration(
+                         color: Colors.white,
+                         borderRadius: BorderRadius.circular(10),
+                         
+                         boxShadow: [BoxShadow(
+                           color: Color.fromRGBO(115, 230, 161, .3),
+                           blurRadius: 20,
+                           offset: Offset(0, 10)
+                         )]
+                       ),
+                       child: Column(children: <Widget>[
+                          FadeAnimation(1, Container(
+                           padding: EdgeInsets.all(10),
+                           decoration: BoxDecoration(
+                             border:Border(bottom: BorderSide(color: Colors.grey[200]))
+                           ),
+                           child: TextField(
+                             decoration: InputDecoration(
+                               hintText: "Email or Phone Number",
+                               hintStyle: TextStyle(color: Colors.grey),
+                               border: InputBorder.none
+                             ),
+                           ),
+                         )),
+                          FadeAnimation(1.5, Container(
+                           padding: EdgeInsets.all(10),
+                           decoration: BoxDecoration(
+                             border:Border(bottom: BorderSide(color: Colors.grey[200]))
+                           ),
+                           child: TextField(
+                             decoration: InputDecoration(
+                               hintText: "Password",
+                               hintStyle: TextStyle(color: Colors.grey),
+                               border: InputBorder.none
+                             ),
+                           ),
+                         ))
+                       ],),
+                      ),
+                      SizedBox(height: 20),
+                      Text("Forgot Password", style: TextStyle(color: Colors.grey)),
+                      SizedBox(height: 20),
+                       FadeAnimation(1, Container(
+                        height: 50,
+                        margin: EdgeInsets.symmetric(horizontal: 50),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50 ),
+                          color: Colors.green
+                        ),
+                        child: Center(
+                          child: Text('LOGIN', style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),),
+                        ),
+                      )),
+                      SizedBox(height: 20),
+                      Text("With Social Media", style: TextStyle(color: Colors.grey)),
+                      SizedBox(height: 20),
+
+                       FadeAnimation(1, Row(
+                        children: <Widget>[
+                          Expanded(child: Container(
+                            height: 50,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              color: Colors.blue
+                            ),
+                            child: Center(
+                              child: Center(
+                                child: Text("Facebook", style: TextStyle(color: Colors.white),),
+                              ),
+                            ),
+                          ),
+                          ),
+                          SizedBox(width: 20),
+                            Expanded(child: Container(
+                            height: 50,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              color: Colors.red
+                            ),
+                            child: Center(
+                              child: Text("Google", style: TextStyle(color: Colors.white),),
+                            ),
+                          ),
+                          ),
+                        ],
+                        
+                      )),
+                      
+
+
+
+
+                      
+                    ],)
+                    
+                    ),
+                  ),
+
+                )
+
+
+              ]
+              
+            ),
         )
+        
     );
   }
 }
