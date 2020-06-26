@@ -49,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-  
+       resizeToAvoidBottomPadding: false,
         body: Container(
           padding: EdgeInsets.symmetric(vertical:30),
           width: double.infinity,
