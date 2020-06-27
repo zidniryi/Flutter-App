@@ -45,10 +45,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               begin: Alignment.topCenter,
               stops: [0.1, 0.4, 0.7, 0.9],
               colors: [
-                Color(0xFF3594DD),
-                Color(0xFF4563DB),
-                Color(0xFF5036D5),
-                Color(0xFF5B16D0),
+                Color(4278249078),
+                Color(4278241363),
+                Color(4278249078),
+                Color(4278241363),
               ],
             ),
           ),
@@ -58,19 +58,25 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                Container(
+                _currentPage != _numPages - 1
+                    ?  Container(
                   alignment: Alignment.centerRight,
                   child: FlatButton(
-                    onPressed: () => print('Skip'),
+                       onPressed: () {
+                              _pageController.nextPage(
+                                duration: Duration(milliseconds: 500),
+                                curve: Curves.ease,
+                              );
+                            },
                     child: Text(
-                      'Skip',
+                      'Next',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20.0,
                       ),
                     ),
                   ),
-                ),
+                ) : Text(""),
                 Container(
                   height: 600.0,
                   child: PageView(
@@ -98,7 +104,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             ),
                             SizedBox(height: 50.0),
                             Text(
-                              'Connect people\naround the world',
+                              'Connect human\naround the world',
                               style: kTitleStyle,
                             ),
                             SizedBox(height: 15.0),
@@ -222,7 +228,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     child: Text(
                       'Get started',
                       style: TextStyle(
-                        color: Color(0xFF5B16D0),
+                        color: Color(4278241363),
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
                       ),
@@ -238,10 +244,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             gradient: LinearGradient(
               stops: [0.1, 0.4, 0.7, 0.9],
               colors: [
-                Color(0xFF5B16D0),
-                Color(0xFF5B16D0),
-                Color(0xFF5B16D0),
-                Color(0xFF5B16D0),
+                Color(4278241363),
+                Color(4278241363),
+                Color(4278241363),
+                Color(4278241363),
               ],
             ),
           ),
